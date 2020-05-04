@@ -1,5 +1,6 @@
 package com.jeffery.war;
 
+import com.jeffery.war.util.Util;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -16,6 +17,6 @@ public class SpringbootLauncher extends SpringBootServletInitializer {
 
     @RequestMapping("/*")
     public String sample(){
-        return "it works!";
+        return Util.test();
     }
 }

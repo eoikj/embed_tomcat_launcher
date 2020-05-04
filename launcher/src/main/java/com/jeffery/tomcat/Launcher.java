@@ -2,6 +2,8 @@ package com.jeffery.tomcat;
 
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.broker.jmx.ManagementContext;
+import org.apache.catalina.Context;
+import org.apache.catalina.Host;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.connector.Connector;
 import org.apache.catalina.core.AprLifecycleListener;
@@ -12,7 +14,10 @@ import org.apache.tomcat.util.descriptor.web.ContextResource;
 public class Launcher {
     public static void main(String[] args) throws LifecycleException {
         Tomcat tomcat = new Tomcat();
-        tomcat.addWebapp("/test","D:/code/tomcatsuit/war/target/war-0.0.1-SNAPSHOT");
+        Host host = tomcat.getHost();
+        host.setAutoDeploy(true);
+        Context context = tomcat.addWebapp("/test", "E:/learn/embed_tomcat/tomcatsuit/war/target/war-0.0.1-SNAPSHOT");
+        context.setReloadable(true);
         tomcat.setPort(8080);
         AprLifecycleListener lifecycleListener = new AprLifecycleListener();
         tomcat.getServer().addLifecycleListener(lifecycleListener);
