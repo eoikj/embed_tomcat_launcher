@@ -12,7 +12,7 @@
     <artifactId>launcher</artifactId>
 
     <properties>
-        <tomcat.version>9.0.34</tomcat.version>
+        <tomcat.version>9.0.35</tomcat.version>
     </properties>
 
     <dependencies>
